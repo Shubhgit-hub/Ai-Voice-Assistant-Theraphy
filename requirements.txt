@@ -1,0 +1,37 @@
+# VoiceRx — AI Voice Therapy Assistant
+# Requirements for app_final_v2.py
+
+# Core framework
+streamlit>=1.32.0
+
+# Whisper (OpenAI speech-to-text)
+openai-whisper>=20231117
+
+# Audio recording
+sounddevice>=0.4.6
+
+# Scientific computing
+numpy>=1.24.0
+
+# Audio analysis
+librosa>=0.10.0
+
+# Plotting
+matplotlib>=3.7.0
+
+# Data handling
+pandas>=2.0.0
+
+# Text to speech
+gtts>=2.3.2
+
+# HTTP requests (for Claude AI coach)
+requests>=2.31.0
+
+# Signal processing (dependency of librosa)
+scipy>=1.11.0
+
+# NOTE: ffmpeg must be installed separately on your system
+# Windows: https://ffmpeg.org/download.html (add to PATH)
+# macOS:   brew install ffmpeg
+# Linux:   sudo apt install ffmpeg
