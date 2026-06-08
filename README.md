@@ -1,175 +1,230 @@
-# 🗣️ AI Voice Therapy Assistant
+# 🎙️ AI Voice Therapy Assistant
 
-A full-featured speech therapy app powered by **OpenAI Whisper**, **Streamlit**, **gTTS**, and **librosa**.  
-Practice speaking, get instant AI feedback, track your progress, and consult your AI coach.
+An AI-powered speech therapy and pronunciation training application built with **Python**, **Streamlit**, **OpenAI Whisper**, and advanced audio analysis techniques.
 
----
-
-## 🚀 Features
-
-| Feature | Description |
-|---|---|
-| 🎤 Voice Recording | Real-time microphone capture via `sounddevice` |
-| 🤖 AI Transcription | Whisper `small` model for accurate speech-to-text |
-| 📊 Pronunciation Scoring | Similarity score between target and spoken text |
-| 🔊 TTS Prompts | Hear the exercise spoken aloud via gTTS |
-| 📈 Waveform & Spectrogram | Visual feedback on your recording |
-| 🎵 Pitch & Energy Analysis | Voice characteristics via librosa |
-| 🧩 Adaptive Difficulty | Exercises scale with your score (easy → hard → tongue twisters) |
-| 👥 Multi-User Support | Each patient has their own log file |
-| 📈 Progress Tracker | Chart your score over time, download CSV logs |
-| 🧑‍⚕️ AI Coach | Get tips by topic (R sounds, clarity, etc.) |
-| ☁️ Cloud Backup | Auto-backup logs to `cloud_backup/` folder |
+The application helps users improve pronunciation, speech clarity, articulation, and confidence through intelligent feedback, adaptive exercises, and voice analytics.
 
 ---
 
-## 📁 Project Structure
+## ✨ Features
 
+### 🎤 Voice Recording
+
+* Record speech directly from the application.
+* High-quality audio capture using SoundDevice.
+
+### 🧠 AI Speech Recognition
+
+* Powered by OpenAI Whisper.
+* Converts spoken audio into text with high accuracy.
+
+### 📊 Pronunciation Scoring
+
+* Compares expected text with spoken text.
+* Generates pronunciation accuracy scores.
+* Visual feedback with performance indicators.
+
+### 🔍 Voice Analysis
+
+* Pitch Detection
+* Energy Analysis
+* Speech Clarity Assessment
+
+### 📈 Audio Visualizations
+
+* Waveform Visualization
+* Spectrogram Analysis
+* Real-time Speech Insights
+
+### 🎯 Adaptive Practice Exercises
+
+Exercises automatically adjust based on previous performance:
+
+* Easy Words
+* Medium Vocabulary
+* Advanced Vocabulary
+* Tongue Twisters
+
+### 🧑‍🏫 AI Speech Coach
+
+Provides personalized speech improvement tips:
+
+* R Sound Training
+* S Sound Training
+* Speech Clarity Coaching
+* General Pronunciation Guidance
+
+### 💾 Progress Tracking
+
+* Session History
+* Performance Logs
+* User Progress Monitoring
+
+---
+
+## 🛠️ Tech Stack
+
+### Frontend
+
+* Streamlit
+
+### Speech Processing
+
+* OpenAI Whisper
+* Librosa
+* NumPy
+
+### Audio Processing
+
+* SoundDevice
+* Wave
+
+### Visualization
+
+* Matplotlib
+
+### Utilities
+
+* Pandas
+* Python Standard Library
+
+---
+
+## 📂 Project Structure
+
+```text
+AI-Voice-Therapy-Assistant
+│
+├── ai_assistant.py
+├── utils.py
+├── requirements.txt
+├── README.md
+│
+├── user_logs/
+├── cloud_backup/
+│
+└── assets/
 ```
-voice_therapy_assistant/
-│
-├── app.py                  ← Main Streamlit application
-├── requirements.txt        ← Python dependencies
-├── README.md               ← This file
-│
-├── user_logs/              ← Per-user CSV session logs (auto-created)
-│   └── Patient1_log.csv
-│
-└── cloud_backup/           ← Backup copies of user logs (auto-created)
-    └── Patient1_backup.csv
-```
 
 ---
 
-## ⚙️ Installation
+## 🚀 Installation
 
-### 1. Clone / download the project
+### Clone Repository
 
 ```bash
-cd voice_therapy_assistant
+git clone https://github.com/Shubhgit-hub/Ai-Voice-Assistant-Theraphy.git
+cd Ai-Voice-Assistant-Theraphy
 ```
 
-### 2. Create a virtual environment (recommended)
+### Create Virtual Environment
 
 ```bash
 python -m venv venv
+```
 
-# Windows
+Activate:
+
+#### Windows
+
+```bash
 venv\Scripts\activate
+```
 
-# macOS / Linux
+#### Linux / Mac
+
+```bash
 source venv/bin/activate
 ```
 
-### 3. Install dependencies
+### Install Dependencies
 
 ```bash
 pip install -r requirements.txt
 ```
 
-> **Note:** Whisper also requires `ffmpeg` to be installed on your system.
-> - **Windows:** Download from https://ffmpeg.org/download.html and add to PATH
-> - **macOS:** `brew install ffmpeg`
-> - **Linux:** `sudo apt install ffmpeg`
+---
 
-### 4. Run the app
+## ▶️ Run Application
 
 ```bash
-streamlit run app.py
+streamlit run ai_assistant.py
 ```
 
-The app will open automatically at `http://localhost:8501`
+Application will open automatically in your browser.
 
 ---
 
-## 🎮 How to Use
+## 📸 Screenshots
 
-1. **Enter your Patient ID** in the sidebar (e.g. `Patient1`)
-2. Go to the **Practice Session** tab
-3. Click **🔊 Hear the Exercise** to listen to the target word/phrase
-4. Click **🎤 Record & Analyze** and speak clearly
-5. View your **waveform, spectrogram, pitch, and pronunciation score**
-6. Check the **📈 Progress Tracker** tab to see your score history
-7. Visit the **🧑‍⚕️ AI Coach** for personalized tips
+Add screenshots here after deployment:
 
----
-
-## 📦 Dependencies
-
-| Package | Purpose |
-|---|---|
-| `streamlit` | Web UI framework |
-| `openai-whisper` | Speech-to-text transcription |
-| `sounddevice` | Microphone recording |
-| `numpy` | Audio array processing |
-| `matplotlib` | Waveform & spectrogram plots |
-| `pandas` | Session log management |
-| `gtts` | Text-to-speech for exercise prompts |
-| `librosa` | Pitch & energy analysis |
-| `scipy` | Signal processing |
+* Home Screen
+* Recording Interface
+* Pronunciation Results
+* Progress Dashboard
+* Spectrogram Analysis
 
 ---
 
-## 🔧 Configuration
+## 🎯 Future Enhancements
 
-All settings are accessible from the **sidebar**:
-- Patient ID / name
-- Recording duration (3–10 seconds)
-
-Exercise difficulty adapts automatically based on your last session score:
-- Score < 60 → Easy words
-- Score 60–85 → Medium words
-- Score > 85 → Hard words & tongue twisters
-
----
-
-## 📊 Session Log Format
-
-Each user's log is saved at `user_logs/{name}_log.csv`:
-
-| Column | Description |
-|---|---|
-| `Date` | Session date |
-| `Exercise` | Target word/phrase |
-| `Spoken` | What Whisper heard |
-| `Score` | Pronunciation score (0–100) |
-| `Pitch` | Average pitch in Hz |
-| `Energy` | Voice energy level |
-| `Difficulty` | easy / medium / hard / tongue |
+* User Authentication
+* Cloud Database Integration
+* GPT-Powered Speech Coach
+* Real-Time Pronunciation Feedback
+* Phoneme-Level Error Detection
+* Progress Analytics Dashboard
+* Speech Disorder-Specific Exercises
+* Mobile Application Version
 
 ---
 
-## 🛠 Troubleshooting
+## 🧪 Example Workflow
 
-| Problem | Solution |
-|---|---|
-| No microphone detected | Check system audio settings; run `python -c "import sounddevice; print(sounddevice.query_devices())"` |
-| Whisper slow on first run | It downloads the model (~244MB for `small`) on first use |
-| `ffmpeg` not found | Install ffmpeg and add to your system PATH |
-| PermissionError on temp file | Normal on Windows — file is cleaned up on next run |
+1. Select an exercise.
+2. Record your speech.
+3. AI transcribes your audio.
+4. Pronunciation score is calculated.
+5. Voice metrics are analyzed.
+6. Personalized feedback is generated.
+7. Progress is saved for future sessions.
 
 ---
 
-## 🗺 Development History
+## 🤝 Contributing
 
-This project was built iteratively in 10 steps:
+Contributions, issues, and feature requests are welcome.
 
-```
-Step 1  → Basic voice recorder + playback
-Step 2  → Added Whisper transcription
-Step 3  → Standalone transcription script
-Step 4  → Combined recorder + transcriber
-Step 5  → Pronunciation scoring & feedback
-Step 6  → Progress tracking with CSV log
-Step 7  → Waveform & spectrogram visualization
-Step 8  → Adaptive difficulty system
-Step 9  → TTS guided prompts (gTTS)
-Step 10 → Multi-user support
-Final   → Full integrated app with all features
-```
+1. Fork the repository
+2. Create a feature branch
+3. Commit your changes
+4. Submit a Pull Request
 
 ---
 
 ## 📄 License
 
-For educational and therapeutic use. Built with ❤️ using open-source tools.
+This project is licensed under the MIT License.
+
+---
+
+## 👨‍💻 Author
+
+**Shubham Yadav**
+
+GitHub: https://github.com/Shubhgit-hub
+
+Passionate about AI, Speech Processing, Machine Learning, and Software Development.
+
+---
+
+## ⭐ Support
+
+If you found this project useful:
+
+⭐ Star the repository
+
+🍴 Fork the repository
+
+📢 Share it with others
